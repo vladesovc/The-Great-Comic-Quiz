@@ -25,15 +25,10 @@ var questions = [
         answer: "Stan Lee",
     }
 ]
-// var h1El = createElement("h1")
-// h1El.textContent = questions[1].question
 
 var startBtn = document.querySelector("#start");
 var timerP = document.querySelector("#timer");
-var wordDiv = document.getElementById("word");
 var count = 120;
-var word;
-var _word = "";
 var wins = 0;
 var losses = 0;
 var timer;
@@ -77,13 +72,13 @@ function answerKey() {
     }
     myLevel++
     if (myLevel >= questions.length) {
-       gameOver()
+        gameOver()
     } else {
         game()
     }
 }
 
 function gameOver() {
-    console.log("GAME OVER - Excelsior! ");
+    console.log("GAME OVER - Excelsior!");
     clearInterval(timer)
 }
