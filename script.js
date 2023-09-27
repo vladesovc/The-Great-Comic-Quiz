@@ -12,7 +12,7 @@ var questions = [
     {
         question: "Which artist has iconic comic runs with Spider-Man and Batman, while also creating Spawn? ",
         choices: ["Jim Lee", "George Perez", "John Romita Jr", "Todd McFarlane"],
-        answer: "todd McFarlane",
+        answer: "Todd McFarlane",
     },
     {
         question: "Who is most known for being one of the most prolific and influential creators in comics history?",

@@ -1,107 +1,23 @@
 # The-Great-Comic-Quiz
 
-- Create file/folder structure
-    - Two seperate HTML pages (one for the quiz, one for hiscores)
-- Once a start button is clicked
-    - Quiz starts, timer starts counting down (Set Interval)
+WELCOME TO THE GREAT COMIC QUIZ!!
 
-    - When an answer is selected
-        - IF an answer is wrong, then decrement our timer (15 seconds)
-            - Display that user choice was incorrect, move to the next question
-        - IF an answer is correct
-            - Display that user choice was correct
-            - We want to either display score with remaining time OR increment score(Up to you)
-        - For loop to loop thru questions array to the next question
+This is a quiz application that a user can interact with to get to the end and try to set a highscore that will be displayed. 
 
-    - When timer hits 0 OR no more questions in our array
-        - Then we have to clear Interval
-        - Then allow user to input initials (prevent default on our html form)
-        - Display the users score and Then link to hiscores page
-        - Save data to local storage
+Description:
+On this website you will find a quiz that revolves around knowledge of Comic Books / the industry. The user will click on the start button to begin the game, and will then proceed to answer 5 questions. If they get one wrong, the game will end the score will be recorded. If they keep getting them right, they continue through the 5 questions until they have answered them all correctly. Once the game is over the score will be displayed to the user, with the prompt to display their initials as well. 
 
-    - We will use javascript to dynamically create our HTML 
-        - createElement to create 
-            - Maybe H1 for our question, buttons for our choices, maybe an H2 to display wrong/right to user
+Website URL
+https://vladesovc.github.io/The-Great-Comic-Quiz/
 
-var questions = [
-    {
-        question: "What does HTML stand for?",
-        choices: ["Hyper text markup language", "Hyper text martian language", "answer 3", "Answer 4"],
-        answer: "Hyper text markup language",
-    },
-    {
-        question: "Commonly used data types DO NOT include",
-        choices: ["Strings", "booleans", "alerts", "numbers"],
-        answer: "alerts",
-    },
-    {
-        question: "The condition in an if / else statement is enclosed within ____.
-        choices: ["quotes", "curly brackets", "parentheses", "square brackets"],
-        answer: "parentheses",
-    }    
-]
-var h1El = createElement("h1")
-h1El.textContent = questions[1].question
-    
+Usage:
+For a user to test their comic knowledge and try to attain a highscore. 
 
-// alert("working");
+Credits
+N/A
 
-//click on start btn that starts both timer and game
-//setinterval for timer
-//store wins and losses on local storage
-//get and set function for values
-//array of words
-//way to pick a word and replace the letters with _
-// take userinput for letters (keydown event)
-//check userinput against the word letter
+License
+Please refer to the LICENSE in the repo
 
-var startBtn = document.querySelector("#start");
-var timerP = document.querySelector("#timer");
-var wordDiv = document.getElementById("word");
-var count = 10;
-var wordList = ["javascript", "function"];
-var word;
-var _word = "";
-var wins = 0;
-var losses = 0;
-
-startBtn.addEventListener("click", function () {
-    // alert("start game")
-    game();
-    var timer = setInterval(function () {
-        if (count > 0) {
-            count--;
-            timerP.textContent = count;
-        } else {
-            clearInterval(timer)
-            // alert("game over")
-            wordDiv.textContent = "GAME OVER"
-        }
-
-    }, 1000)
-});
-
-function game() {
-    word = wordList[Math.floor(Math.random() * wordList.length)]
-    console.log(word);
-    for (var i = 0; i < word.length; i++) {
-        _word += "_"
-    }
-    // console.log(_word.split("").join(" "));
-    wordDiv.textContent = _word.split("").join(" ");
-}
-
-document.addEventListener("keyup", function (e) {
-    word = word.split("");
-    _word = _word.split("");
-    console.log(e.key, word, _word);
-    for (var i = 0; i < _word.length; i++) {
-        if(e.key === word[i]){
-            _word[i] = e.key
-        }
-    }
-    console.log(_word);
-    word = word.join("");
-    _word = _word.join("");
-    wordDiv.textContent = _word;
-})
+![Alt text](<assets/screenshot of quiz and console.png>)
+![Alt text](<assets/screenshot of quiz app.png>)
