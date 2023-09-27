@@ -38,8 +38,70 @@ var questions = [
         question: "The condition in an if / else statement is enclosed within ____.
         choices: ["quotes", "curly brackets", "parentheses", "square brackets"],
         answer: "parentheses",
-    }
+    }    
 ]
 var h1El = createElement("h1")
 h1El.textContent = questions[1].question
+    
 
+// alert("working");
+
+//click on start btn that starts both timer and game
+//setinterval for timer
+//store wins and losses on local storage
+//get and set function for values
+//array of words
+//way to pick a word and replace the letters with _
+// take userinput for letters (keydown event)
+//check userinput against the word letter
+
+var startBtn = document.querySelector("#start");
+var timerP = document.querySelector("#timer");
+var wordDiv = document.getElementById("word");
+var count = 10;
+var wordList = ["javascript", "function"];
+var word;
+var _word = "";
+var wins = 0;
+var losses = 0;
+
+startBtn.addEventListener("click", function () {
+    // alert("start game")
+    game();
+    var timer = setInterval(function () {
+        if (count > 0) {
+            count--;
+            timerP.textContent = count;
+        } else {
+            clearInterval(timer)
+            // alert("game over")
+            wordDiv.textContent = "GAME OVER"
+        }
+
+    }, 1000)
+});
+
+function game() {
+    word = wordList[Math.floor(Math.random() * wordList.length)]
+    console.log(word);
+    for (var i = 0; i < word.length; i++) {
+        _word += "_"
+    }
+    // console.log(_word.split("").join(" "));
+    wordDiv.textContent = _word.split("").join(" ");
+}
+
+document.addEventListener("keyup", function (e) {
+    word = word.split("");
+    _word = _word.split("");
+    console.log(e.key, word, _word);
+    for (var i = 0; i < _word.length; i++) {
+        if(e.key === word[i]){
+            _word[i] = e.key
+        }
+    }
+    console.log(_word);
+    word = word.join("");
+    _word = _word.join("");
+    wordDiv.textContent = _word;
+})
