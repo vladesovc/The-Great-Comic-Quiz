@@ -40,7 +40,6 @@ var timer;
 var myLevel = 0
 
 startBtn.addEventListener("click", function () {
-    // alert("start game")
     game();
     timer = setInterval(function () {
         if (count > 0) {
@@ -48,7 +47,6 @@ startBtn.addEventListener("click", function () {
             timerP.textContent = count;
         } else {
             clearInterval(timer)
-            // alert("game over")
             wordDiv.textContent = "GAME OVER"
         }
 
@@ -86,6 +84,6 @@ function answerKey() {
 }
 
 function gameOver() {
-    console.log("GAME OVER");
+    console.log("GAME OVER - Excelsior! ");
     clearInterval(timer)
 }

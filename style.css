@@ -1,0 +1,11 @@
+#quiz {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: auto;
+    margin-top: 10px;
+}
+
+#answers {
+    
+}
